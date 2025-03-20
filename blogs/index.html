@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人博客</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 30px 0 10px;
+            border-bottom: 3px solid #e8491d;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        header a:hover {
+            color: #e8491d;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            display: inline;
+            margin-right: 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        footer {
+            padding: 20px;
+            margin-top: 40px;
+            color: #fff;
+            background-color: #333;
+            text-align: center;
+            border-top: 3px solid #e8491d;
+        }
+        article {
+            margin-bottom: 40px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .welcome {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #e8491d, #ff6f61);
+            color: white;
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #e8491d;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background: #ff6f61;
+        }
+        h2 {
+            color: #e8491d;
+            margin-bottom: 10px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1>我的个人博客</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="https://mingdedi.github.io/">首页</a></li>
+                    <li><a href="https://mingdedi.github.io/">关于我</a></li>
+                    <li><a href="#" id="contact-link">联系方式</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="welcome">
+        <div class="container">
+            <h1>欢迎来到我的博客</h1>
+            <p>分享我的生活、工作和学习心得</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <article>
+            <h2>文章标题</h2>
+            <p>这里是文章的简要内容。你可以在这里写一些关于文章的介绍，吸引读者点击阅读更多。</p>
+            <a href="./article.html?file=article1.md" class="btn">阅读1</a>
+        </article>
+
+        <article>
+            <h2>另一个文章标题</h2>
+            <p>这里是另一篇文章的简要内容。你可以在这里写一些关于文章的介绍，吸引读者点击阅读更多。</p>
+            <a href="./article.html?file=article1.md" class="btn">阅读更多</a>
+        </article>
+    </section>
+
+    <footer>
+        <p>版权所有 © 2023 我的个人博客</p>
+    </footer>
+
+    <div id="modal-overlay" class="modal-overlay"></div>
+    <div id="modal" class="modal">
+        <span class="modal-close" onclick="hideModal()">×</span>
+        <div class="modal-content">
+            mingdeem@qq.com
+        </div>
+    </div>
+
+    <script>
+        function showModal() {
+            document.getElementById('modal').style.display = 'block';
+            document.getElementById('modal-overlay').style.display = 'block';
+        }
+
+        function hideModal() {
+            document.getElementById('modal').style.display = 'none';
+            document.getElementById('modal-overlay').style.display = 'none';
+        }
+
+        document.getElementById('contact-link').addEventListener('click', function (e) {
+            e.preventDefault();
+            showModal();
+        });
+
+        document.getElementById('modal-overlay').addEventListener('click', hideModal);
+    </script>
+</body>
+</html>
