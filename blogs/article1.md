@@ -10,7 +10,8 @@
 
 ### 插入图片
 
-![示例图片](/IMG_5137.jpg)
+<img src="./images/IMG_5137.jpg" alt="Local Image" style="width: 400px; height: auto;
+display: block; margin: auto;">
 
 dw dwa daw d
 > 这是一个引用块。
